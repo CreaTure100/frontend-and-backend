@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио - Дневник</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>Артем</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Главная</a></li>
+                    <li><a href="projects.html">Проекты</a></li>
+                    <li><a href="diary.html" class="active">Дневник</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="diary">
+            <div class="container">
+                <h1>Мой учебный прогресс</h1>
+
+                <div class="diary-content">
+                    <div class="progress-list">
+                        <h2>Задачи</h2>
+                        <div class="task-item completed">
+                            <span class="task-date">15 дек</span>
+                            <span class="task-text">Верстка макета сайта</span>
+                            <span class="task-status">✓</span>
+                        </div>
+                        <div class="task-item completed">
+                            <span class="task-date">10 дек</span>
+                            <span class="task-text">JavaScript основы</span>
+                            <span class="task-status">✓</span>
+                        </div>
+                        <div class="task-item in-progress">
+                            <span class="task-date">05 дек</span>
+                            <span class="task-text">Работа с формами</span>
+                            <span class="task-status">in progress</span>
+                        </div>
+                        <div class="task-item in-progress">
+                            <span class="task-date">01 дек</span>
+                            <span class="task-text">Адаптивный дизайн</span>
+                            <span class="task-status">in progress</span>
+                        </div>
+                        <button class="btn add-task-btn">Добавить запись</button>
+                    </div>
+
+                    <div class="courses">
+                        <h2>Текущие курсы</h2>
+                        <div class="course-item">
+                            <span>Веб-разработка</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                            <span>90%</span>
+                        </div>
+                        <div class="course-item">
+                            <span>JavaScript</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 70%"></div>
+                            </div>
+                            <span>70%</span>
+                        </div>
+                        <div class="course-item">
+                            <span>React</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 50%"></div>
+                            </div>
+                            <span>50%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Контакты</p>
+        </div>
+    </footer>
+</body>
+</html>

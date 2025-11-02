@@ -1,1 +1,97 @@
-Тест
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио - Главная</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>Артем</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Главная</a></li>
+                    <li><a href="pages/projects.html">Проекты</a></li>
+                    <li><a href="pages/diary.html">Дневник</a></li>
+                    <li><a href="pages/contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Привет! Я студент</h1>
+                    <p class="subtitle">группы ЭФБО-02-24</p>
+                    <p class="description">Я всего-лишь писатель</p>
+                    <a href="assets/resume.pdf" download="resume.pdf" class="btn download-btn" target="_blank">Скачать резюме</a>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/images/profile/avatar.png" alt="Фото" class="profile-photo">
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <div class="container">
+                <h2>Мои навыки</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <span>HTML/CSS</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 33%"></div>
+                        </div>
+                        <span>33%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>JavaScript</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 7%"></div>
+                        </div>
+                        <span>7%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>Bootstrap</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 3%"></div>
+                        </div>
+                        <span>3%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>React</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span>0%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-preview">
+            <div class="container">
+                <h2>Лучшие проекты</h2>
+                <div class="projects-grid">
+                    <div class="project-card">UPY-01</div>
+                    <div class="project-card">UPY-02</div>
+                    <div class="project-card">Outlines</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Контакты</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

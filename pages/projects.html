@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио - Проекты</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>Артем</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Главная</a></li>
+                    <li><a href="projects.html" class="active">Проекты</a></li>
+                    <li><a href="diary.html">Дневник</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="projects-main">
+            <div class="container">
+                <h1>Мои проекты</h1>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="html">HTML</button>
+                    <button class="filter-btn" data-filter="js">JS</button>
+                    <button class="filter-btn" data-filter="others">Другиеs</button>
+                </div>
+                <div class="projects-grid-large">
+                    <!-- Проект 1 -->
+                    <div class="project-card-large" data-category="html" data-project="1">
+                        <h3>UPY-01</h3>
+                        <p>HTML, CSS</p>
+                    </div>
+
+                    <!-- Проект 2 -->
+                    <div class="project-card-large" data-category="js" data-project="2">
+                        <h3>UPY-02</h3>
+                        <p>HTML, CSS, JavaScript, Bootstrap</p>
+                    </div>
+
+                    <!-- Проект 3 -->
+                    <div class="project-card-large" data-category="others" data-project="3">
+                        <h3>Outlines</h3>
+                        <p>C++, Godot Engine</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальное окно -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- Контент будет заполняться динамически -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Контакты</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/projects.js"></script>
+</body>
+</html>
