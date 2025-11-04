@@ -50,7 +50,6 @@ body{
     radial-gradient(1000px 600px at 95% 20%, rgba(89,252,179,.08), transparent 65%),
     linear-gradient(180deg, #0b1220 0%, var(--bg) 240px);
 
-  /* декоративные “блики” через псевдоэлементы — без картинок */
   position: relative;
   overflow-x: hidden;
 }
@@ -70,7 +69,6 @@ body::after{
   transform: translate(0,10%);
 }
 
-/* Главная область тянется на высоту окна минус шапка и футер */
 main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
 
 /* ====== Утилиты ====== */
@@ -151,7 +149,7 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
   box-shadow: 0 6px 14px rgba(106,160,255,.18);
 }
 
-/* ====== Навыки / прогресс ====== */
+/* ====== Навыки ====== */
 .skills{ list-style:none;margin:0;padding:0;display:grid;gap:12px }
 .skills li{ display:grid;grid-template-columns: 170px 1fr auto;gap:12px;align-items:center }
 .progress{
@@ -254,11 +252,10 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
   height: 18px;
   margin-right: 8px;
   vertical-align: middle;
-  /* из чёрных делаем светлые + чуть ярче */
   filter: invert(1) brightness(1.6) contrast(.9);
   opacity: .95;
 }
-/* ====== Футер (прижат вниз, без сжатия контента) ====== */
+/* ====== Футер  ====== */
 .site-footer{
   margin:40px 0 20px;
   color:var(--text-dimmed);
@@ -286,7 +283,7 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
 
 @media (prefers-color-scheme: light){
   .icon{
-    filter: none;     /* в светлой теме оставляем исходный цвет */
+    filter: none;     
     opacity: .85;
   }
 }
