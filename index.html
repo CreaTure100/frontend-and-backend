@@ -1,97 +1,114 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="ru" data-page="index">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Портфолио - Главная</title>
-    <link rel="stylesheet" href="styles/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Личный сайт студента — Главная</title>
+  <meta name="description" content="Визитка студента-разработчика: кратко обо мне, навыки, лучшие проекты." />
+  <link rel="stylesheet" href="styles/styles.css" />
+  <style>
+    /* Только для главной: карточки проектов статичные (без клика/ховера) */
+    .project-card--static { cursor: default; }
+    .project-card--static:hover { transform: none; border-color: var(--border); }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="nav-container">
-                <div class="logo">
-                    <h2>Артем</h2>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="active">Главная</a></li>
-                    <li><a href="pages/projects.html">Проекты</a></li>
-                    <li><a href="pages/diary.html">Дневник</a></li>
-                    <li><a href="pages/contacts.html">Контакты</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Привет! Я студент</h1>
-                    <p class="subtitle">группы ЭФБО-02-24</p>
-                    <p class="description">Я всего-лишь писатель</p>
-                    <a href="assets/resume.pdf" download="resume.pdf" class="btn download-btn" target="_blank">Скачать резюме</a>
-                </div>
-                <div class="hero-image">
-                    <img src="assets/images/profile/avatar.png" alt="Фото" class="profile-photo">
-                </div>
-            </div>
-        </section>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo" aria-label="Логотип">
+        <img src="assets/images/icons/logo.svg" alt="" width="28" height="28" />
+        <span class="logo__text">Шавров Артем Александрович</span>
+      </div>
+      <nav class="site-nav" aria-label="Главная навигация">
+        <a href="./" data-link="index">Главная</a>
+        <a href="pages/projects.html" data-link="projects">Проекты</a>
+        <a href="pages/diary.html" data-link="diary">Дневник</a>
+        <a href="pages/contacts.html" data-link="contacts">Контакты</a>
+      </nav>
+    </div>
+  </header>
 
-        <section class="skills-section">
-            <div class="container">
-                <h2>Мои навыки</h2>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <span>HTML/CSS</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 33%"></div>
-                        </div>
-                        <span>33%</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>JavaScript</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 7%"></div>
-                        </div>
-                        <span>7%</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>Bootstrap</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 3%"></div>
-                        </div>
-                        <span>3%</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>React</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 0%"></div>
-                        </div>
-                        <span>0%</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="projects-preview">
-            <div class="container">
-                <h2>Лучшие проекты</h2>
-                <div class="projects-grid">
-                    <div class="project-card">UPY-01</div>
-                    <div class="project-card">UPY-02</div>
-                    <div class="project-card">Outlines</div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Контакты</p>
+  <main id="main" class="container stack-lg">
+    <section class="hero card">
+      <div class="hero__media">
+        <img src="assets/images/profile/ava.jpg" alt="Фото студента" loading="lazy" />
+      </div>
+      <div class="hero__body">
+        <h1 class="h2">Привет! Я студент группы ЭФБО-02-24</h1>
+        <p>Увлекаюсь веб‑разработкой: HTML, CSS, JavaScript. Ищу практику и интересные задачи.</p>
+        <div class="hero__actions">
+          <a class="btn" href="assets/resume.pdf" download>Скачать резюме</a>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script src="scripts/main.js"></script>
+    <section aria-labelledby="skills-title" class="card">
+      <h2 id="skills-title" class="h3">Мои навыки</h2>
+      <ul class="skills">
+        <li>
+          <span>HTML/CSS</span>
+          <div class="progress" role="progressbar" aria-label="HTML и CSS" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90">
+            <span style="--value:90%"></span>
+          </div>
+          <span class="progress__value">90%</span>
+        </li>
+        <li>
+          <span>JavaScript</span>
+          <div class="progress" role="progressbar" aria-label="JavaScript" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
+            <span style="--value:80%"></span>
+          </div>
+          <span class="progress__value">80%</span>
+        </li>
+        <li>
+          <span>Bootstrap</span>
+          <div class="progress" role="progressbar" aria-label="Bootstrap" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85">
+            <span style="--value:85%"></span>
+          </div>
+          <span class="progress__value">85%</span>
+        </li>
+        <li>
+          <span>React</span>
+          <div class="progress" role="progressbar" aria-label="React" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60">
+            <span style="--value:60%"></span>
+          </div>
+          <span class="progress__value">60%</span>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="best-title" class="card">
+      <div class="section-head">
+        <h2 id="best-title" class="h3">Лучшие проекты</h2>
+        <a class="link" href="pages/projects.html">Смотреть все</a>
+      </div>
+      <div class="cards-grid">
+        <!-- Статичные карточки без ссылок -->
+        <article class="project-card project-card--static">
+          <h3 class="project-card__title">Личный сайт + Портфолио</h3>
+          <p class="text-dimmed">HTML, CSS, Bootstrap</p>
+        </article>
+
+        <article class="project-card project-card--static">
+          <h3 class="project-card__title">Интернет‑магазин</h3>
+          <p class="text-dimmed">JavaScript</p>
+        </article>
+
+        <article class="project-card project-card--static">
+          <h3 class="project-card__title">Приложение‑библиотека</h3>
+          <p class="text-dimmed">Python, SQL</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© 2025 Контакты</small>
+    </div>
+  </footer>
+
+  <script src="scripts/app.js" defer></script>
 </body>
 </html>
