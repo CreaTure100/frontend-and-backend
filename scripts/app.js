@@ -1,4 +1,3 @@
-
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
@@ -28,19 +27,38 @@ const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
     });
   }));
 
-
   const modal = $('#project-modal');
   const title = $('#project-modal-title');
   const desc = $('#project-modal-desc');
   const aDemo = $('#project-modal-demo');
   const aCode = $('#project-modal-code');
+  const gallery = $('#project-modal-gallery');
+
+  function setGallery(fromCard, projectTitle){
+    // Очистить и заполнить по data-img1 / data-img2
+    gallery.innerHTML = '';
+    const imgs = [fromCard.dataset.img1, fromCard.dataset.img2].filter(Boolean);
+    if(imgs.length){
+      imgs.forEach((src, i)=>{
+        const img = document.createElement('img');
+        img.src = src;
+        img.loading = 'lazy';
+        img.alt = `${projectTitle} — скриншот ${i+1}`;
+        gallery.appendChild(img);
+      });
+      gallery.hidden = false;
+    } else {
+      gallery.hidden = true;
+    }
+  }
 
   function openModal(fromCard){
-
-    title.textContent = fromCard.dataset.title || 'Проект';
+    const t = fromCard.dataset.title || 'Проект';
+    title.textContent = t;
     desc.textContent = fromCard.dataset.desc || 'Описание появится позже.';
     aDemo.href = fromCard.dataset.demo || '#';
     aCode.href = fromCard.dataset.code || '#';
+    setGallery(fromCard, t);
 
     modal.setAttribute('aria-hidden','false');
     document.body.style.overflow = 'hidden';

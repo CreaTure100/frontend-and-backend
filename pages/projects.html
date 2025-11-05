@@ -40,11 +40,14 @@
       </div>
 
       <div class="cards-grid" id="projects-grid">
+        <!-- Примеры: добавлены data-img1/data-img2 -->
         <article class="project-card" tabindex="0" data-category="html"
             data-title="Личный сайт + Портфолио"
             data-desc="Одностраничный сайт с разделами и портфолио"
             data-demo="https://creature100.github.io/frontend-and-backend-practice/index.html"
-            data-code="https://github.com/CreaTure100/frontend-and-backend-practice">
+            data-code="https://github.com/CreaTure100/frontend-and-backend-practice"
+            data-img1="../assets/images/projects/portfolio-1.png"
+            data-img2="../assets/images/projects/portfolio-2.png">
           <h2 class="project-card__title">Личный сайт + Портфолио</h2>
           <p class="text-dimmed">HTML, CSS, Bootstrap</p>
         </article>
@@ -53,7 +56,9 @@
                  data-title="Система библиотеки (Python + SQL)"
                  data-desc="Десктопное приложение для библиотеки на Python с базой данных (SQL)"
                  data-demo="https://github.com/CreaTure100/BD_biblioteka_02"
-                 data-code="https://github.com/CreaTure100/BD_biblioteka_02">
+                 data-code="https://github.com/CreaTure100/BD_biblioteka_02"
+                 data-img1="../assets/images/projects/library-1.png"
+                 data-img2="../assets/images/projects/library-2.png">
           <h2 class="project-card__title">Приложение-библиотека</h2>
           <p class="text-dimmed">Python, SQL</p>
         </article>
@@ -62,7 +67,8 @@
             data-title="Интернет‑магазин (страница товаров)"
             data-desc="Демо каталога товаров"
             data-demo="https://creature100.github.io/frontend-and-backend-practice/pages/goods.html"
-            data-code="https://github.com/CreaTure100/frontend-and-backend-practice">
+            data-code="https://github.com/CreaTure100/frontend-and-backend-practice"
+            data-img1="../assets/images/projects/goods-1.png">
           <h2 class="project-card__title">Интернет‑магазин</h2>
           <p class="text-dimmed">JavaScript</p>
         </article>
@@ -71,7 +77,9 @@
                  data-title="Шахматы (C++ курсовая)"
                  data-desc="Приложение шахматы на C++ с ИИ в рамках курсовой работы"
                  data-demo="https://github.com/CreaTure100/Chess"
-                 data-code="https://github.com/CreaTure100/Chess">
+                 data-code="https://github.com/CreaTure100/Chess"
+                 data-img1="../assets/images/projects/chess-1.png"
+                 data-img2="../assets/images/projects/chess-2.png">
           <h2 class="project-card__title">Шахматы</h2>
           <p class="text-dimmed">C++</p>
         </article>
@@ -79,12 +87,16 @@
     </section>
   </main>
 
+  <!-- Модалка: добавлена галерея для скринов -->
   <div class="modal" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
     <div class="modal__backdrop" data-close-modal></div>
     <div class="modal__dialog" role="document">
       <button class="modal__close" type="button" aria-label="Закрыть" data-close-modal>×</button>
       <h2 id="project-modal-title">Заголовок проекта</h2>
       <p id="project-modal-desc" class="text-dimmed">Подробное описание появится здесь.</p>
+
+      <div class="modal__gallery" id="project-modal-gallery" hidden aria-label="Скриншоты проекта"></div>
+
       <div class="modal__actions">
         <a href="#" target="_blank" rel="noopener" class="btn btn--ghost" id="project-modal-demo">Демо</a>
         <a href="#" target="_blank" rel="noopener" class="btn" id="project-modal-code">Исходники</a>
