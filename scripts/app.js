@@ -123,7 +123,7 @@ const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   });
 })();
 
-// Контактная форма
+// Контактная формаf
 (function initContactForm(){
   const form = $('#contact-form');
   if(!form) return;

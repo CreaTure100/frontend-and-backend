@@ -272,7 +272,7 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
   border-style: dashed;
 }
 
-/* Бейджи статуса — дают отступ и визуальную разницу */
+/* Бейджи статусаf — дают отступ и визуальную разницу */
 .status{
   display:inline-flex;
   align-items:center;
