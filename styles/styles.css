@@ -239,18 +239,69 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
 }
 
 /* ====== Дневник ====== */
-.timeline{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+/* ====== Дневник (обновлено) ====== */
+.timeline{
+  list-style:none; margin:0; padding:0; display:grid; gap:12px;
+}
 .timeline li{
-  padding:10px 12px;border-radius:12px;
+  --accent1: var(--brand);
+  --accent2: var(--brand-3);
+  padding:12px 14px;
+  border-radius:12px;
   background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
   border:1px solid rgba(255,255,255,.06);
   position:relative;
 }
 .timeline li::before{
   content:""; position:absolute; left:-1px; top:0; bottom:0; width:4px;
-  background: linear-gradient(180deg, var(--brand), var(--brand-3));
+  background: linear-gradient(180deg, var(--accent1), var(--accent2));
   border-top-left-radius:12px; border-bottom-left-radius:12px;
 }
+
+/* ВЫПОЛНЕНО: зелёные акценты и спокойный фон */
+.timeline li.is-done{
+  --accent1: #22c55e;
+  --accent2: #59fcb3;
+  border-style: solid;
+}
+
+/* В ПРОЦЕССЕ: оранжевые акценты, пунктирная рамка */
+.timeline li.is-progress{
+  --accent1: #f59e0b;
+  --accent2: #fdba74;
+  border-style: dashed;
+}
+
+/* Бейджи статуса — дают отступ и визуальную разницу */
+.status{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:4px 10px;
+  margin-left: 12px;           /* расстояние от текста задачи */
+  border-radius:999px;
+  border:1px solid transparent;
+  font-size: 14px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.status--done{
+  color:#9df5be;
+  background: rgba(34,197,94,.14);
+  border-color: rgba(34,197,94,.35);
+}
+.status--done::before{ content:"✓"; }
+
+/* «В процессе» */
+.status--progress{
+  color:#ffd39a;
+  background: rgba(245,158,11,.15);
+  border-color: rgba(245,158,11,.40);
+}
+.status--progress::before{ content:"⏳"; }
+
+/* Больше воздуха под списком до разделителя */
+.timeline + .divider{ margin-top: 18px; }
 
 /* ====== Форма ====== */
 .contact-form{display:grid;gap:14px;max-width:640px}

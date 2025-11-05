@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru" data-page="diary">
+<html lang="ру" data-page="diary">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,10 +30,22 @@
       <h1 id="progress-title" class="h2">Мой учебный прогресс</h1>
 
       <ul class="timeline" id="diary-list" aria-label="Список записей дневника">
-        <li><time datetime="2025-12-15">15 дек</time> — Верстка макета сайта <span aria-label="выполнено" title="выполнено">✓</span></li>
-        <li><time datetime="2025-12-10">10 дек</time> — JavaScript основы <span aria-label="выполнено" title="выполнено">✓</span></li>
-        <li><time datetime="2025-12-05">05 дек</time> — Работа с формами <em class="text-dimmed">in progress</em></li>
-        <li><time datetime="2025-12-01">01 дек</time> — Адаптивный дизайн <em class="text-dimmed">in progress</em></li>
+        <li class="is-done">
+          <time datetime="2025-12-15">15 дек</time> — Верстка макета сайта
+          <span class="status status--done" aria-label="выполнено" title="выполнено">Готово</span>
+        </li>
+        <li class="is-done">
+          <time datetime="2025-12-10">10 дек</time> — JavaScript основы
+          <span class="status status--done" aria-label="выполнено" title="выполнено">Готово</span>
+        </li>
+        <li class="is-progress">
+          <time datetime="2025-12-05">05 дек</time> — Работа с формами
+          <span class="status status--progress" aria-label="в процессе" title="в процессе">В процессе</span>
+        </li>
+        <li class="is-progress">
+          <time datetime="2025-12-01">01 дек</time> — Адаптивный дизайн
+          <span class="status status--progress" aria-label="в процессе" title="в процессе">В процессе</span>
+        </li>
       </ul>
 
       <div class="divider" role="separator" aria-hidden="true"></div>

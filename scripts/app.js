@@ -32,33 +32,12 @@ const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   const desc = $('#project-modal-desc');
   const aDemo = $('#project-modal-demo');
   const aCode = $('#project-modal-code');
-  const gallery = $('#project-modal-gallery');
-
-  function setGallery(fromCard, projectTitle){
-    // Очистить и заполнить по data-img1 / data-img2
-    gallery.innerHTML = '';
-    const imgs = [fromCard.dataset.img1, fromCard.dataset.img2].filter(Boolean);
-    if(imgs.length){
-      imgs.forEach((src, i)=>{
-        const img = document.createElement('img');
-        img.src = src;
-        img.loading = 'lazy';
-        img.alt = `${projectTitle} — скриншот ${i+1}`;
-        gallery.appendChild(img);
-      });
-      gallery.hidden = false;
-    } else {
-      gallery.hidden = true;
-    }
-  }
 
   function openModal(fromCard){
-    const t = fromCard.dataset.title || 'Проект';
-    title.textContent = t;
+    title.textContent = fromCard.dataset.title || 'Проект';
     desc.textContent = fromCard.dataset.desc || 'Описание появится позже.';
     aDemo.href = fromCard.dataset.demo || '#';
     aCode.href = fromCard.dataset.code || '#';
-    setGallery(fromCard, t);
 
     modal.setAttribute('aria-hidden','false');
     document.body.style.overflow = 'hidden';
@@ -89,7 +68,8 @@ const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
     const now = new Date();
     const dd = now.toLocaleDateString('ru-RU', { day:'2-digit', month:'short' });
     const li = document.createElement('li');
-    li.innerHTML = `<time>${dd}</time> — Новая запись <em class="text-dimmed">in progress</em>`;
+    li.className = 'is-progress';
+    li.innerHTML = `<time>${dd}</time> — Новая запись <span class="status status--progress" aria-label="в процессе" title="в процессе">В процессе</span>`;
     list.prepend(li);
   });
 })();
