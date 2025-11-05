@@ -530,7 +530,7 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
 :root[data-theme="light"] .status--done{
   background: #d1fadf;   /* яркий мятный фон */
   border-color: #16a34a; /* насыщённая окантовка */
-  color: #0f6b3b;        /* тёмно‑зелёный текст для читаемости */
+  color: #0f6b3b;        /* тёмно‑зелёный текст д0ля читаемости */
 }
 :root[data-theme="light"] .status--progress{
   background: #ffe4b5;   /* светло‑оранжевый фон (ярче) */
