@@ -1,4 +1,4 @@
-/* ====== Тема и палитра ====== */
+/* ====== Тема и палитра (базовые значения) ====== */
 :root{
   /* Базовые */
   --bg: #0a0c12;             /* фон */
@@ -16,7 +16,7 @@
   --brand-3:#59fcb3;         /* зелёный акцент для градиентов */
   --glow: rgba(106,160,255,.35); /* свечение */
 
-  /* Служебные */
+  /* Статусы */
   --ok:#22c55e;
   --warn:#f59e0b;
   --danger:#ef4444;
@@ -28,17 +28,22 @@
 
 @media (prefers-color-scheme: light){
   :root{
-    --bg: #f5f7ff;
+    /* Сделал светлую тему контрастнее */
+    --bg: #f3f6fc;
     --surface: #ffffff;
-    --surface-2: #f0f4ff;
-    --text: #0f172a;
-    --text-dimmed:#51607a;
-    --border:#dfe6fb;
-    --shadow: 0 10px 30px rgba(2,6,23,.08);
-    --glow: rgba(106,160,255,.25);
+    --surface-2: #eef2f9;
+    --text: #0b1220;
+    --text-dimmed:#34425a;
+    --border:#c6d0e1;         /* темнее прежнего #dfe6fb для лучшего контраста */
+    --shadow: 0 10px 28px rgba(2,6,23,.09);
+    --glow: rgba(106,160,255,.22);
+    --brand:#4e76ff;
+    --brand-2:#3458ff;
+    --brand-3:#0bd89a;
   }
 }
 
+/* ====== База ====== */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
@@ -49,7 +54,6 @@ body{
     radial-gradient(1200px 600px at 10% 0%, rgba(108,99,255,.11), transparent 60%),
     radial-gradient(1000px 600px at 95% 20%, rgba(89,252,179,.08), transparent 65%),
     linear-gradient(180deg, #0b1220 0%, var(--bg) 240px);
-
   position: relative;
   overflow-x: hidden;
 }
@@ -69,6 +73,7 @@ body::after{
   transform: translate(0,10%);
 }
 
+/* Главная область тянется на высоту окна минус шапка и футер */
 main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
 
 /* ====== Утилиты ====== */
@@ -81,7 +86,6 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
 .link{color:var(--brand);text-decoration:none}
 .link:hover{text-decoration:underline}
 
-/* Карточки с “внутренним” светом */
 .card{
   background:
     linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0) 40%),
@@ -132,6 +136,8 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
   box-shadow: 0 12px 28px rgba(0,0,0,.35);
 }
 .hero__actions{margin-top:10px}
+
+/* ====== Кнопки ====== */
 .btn{
   --btn-bg: linear-gradient(180deg, var(--brand), #7fc3ff);
   display:inline-flex;align-items:center;justify-content:center;
@@ -149,7 +155,7 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
   box-shadow: 0 6px 14px rgba(106,160,255,.18);
 }
 
-/* ====== Навыки ====== */
+/* ====== Навыки / прогресс ====== */
 .skills{ list-style:none;margin:0;padding:0;display:grid;gap:12px }
 .skills li{ display:grid;grid-template-columns: 170px 1fr auto;gap:12px;align-items:center }
 .progress{
@@ -163,6 +169,11 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
 }
 .progress__value{ font-variant-numeric: tabular-nums; color:var(--text-dimmed) }
 
+/* Больше пространства перед кнопкой "Добавить запись" */
+.skills + .actions{
+  margin-top: clamp(16px, 3.2vw, 32px);
+}
+
 /* ====== Грид карточек ====== */
 .cards-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .project-card{
@@ -171,6 +182,7 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
     var(--surface-2);
   transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease;
   box-shadow: 0 8px 20px rgba(0,0,0,.20);
+  cursor: pointer;
 }
 .project-card:hover{
   transform:translateY(-3px);
@@ -200,7 +212,7 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
   box-shadow: 0 8px 18px var(--glow);
 }
 
-/* ====== Модалка ====== */
+/* ====== Модалка (общая) ====== */
 .modal{position:fixed;inset:0;display:none}
 .modal[aria-hidden="false"]{display:block}
 .modal__backdrop{position:absolute;inset:0;background:linear-gradient(180deg, rgba(10,12,18,.6), rgba(10,12,18,.8)); backdrop-filter: blur(2px)}
@@ -218,6 +230,15 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
 }
 .modal__close:hover{ background: rgba(255,255,255,.06); color:var(--text) }
 .modal__actions{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+
+/* Форма внутри модалки (для ввода задачи) */
+.modal__form{
+  display:grid;
+  gap:12px;
+  margin-top:12px;
+}
+
+/* ====== Галерея скриншотов в модалке проектов ====== */
 .modal__gallery{
   margin-top:12px;
   display:grid;
@@ -239,7 +260,6 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
 }
 
 /* ====== Дневник ====== */
-/* ====== Дневник (обновлено) ====== */
 .timeline{
   list-style:none; margin:0; padding:0; display:grid; gap:12px;
 }
@@ -272,13 +292,13 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
   border-style: dashed;
 }
 
-/* Бейджи статусаf — дают отступ и визуальную разницу */
+/* Бейджи статуса — отступ и визуальная разница */
 .status{
   display:inline-flex;
   align-items:center;
   gap:6px;
   padding:4px 10px;
-  margin-left: 12px;           /* расстояние от текста задачи */
+  margin-left: 12px;
   border-radius:999px;
   border:1px solid transparent;
   font-size: 14px;
@@ -291,8 +311,6 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
   border-color: rgba(34,197,94,.35);
 }
 .status--done::before{ content:"✓"; }
-
-/* «В процессе» */
 .status--progress{
   color:#ffd39a;
   background: rgba(245,158,11,.15);
@@ -317,6 +335,8 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
 .error{color:var(--danger);min-height:1em}
 .form-status{margin-top:4px;color:var(--ok)}
 .contact-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+
+/* Иконки (как <img>) — читаемость в тёмной теме */
 .icon{
   width: 18px;
   height: 18px;
@@ -325,7 +345,19 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
   filter: invert(1) brightness(1.6) contrast(.9);
   opacity: .95;
 }
-/* ====== Футер  ====== */
+@media (prefers-color-scheme: light){
+  .icon{ filter: none; opacity: .9; }
+}
+
+/* Ссылки в контактах */
+.contact-list a{
+  color: var(--brand);
+  text-decoration: none;
+}
+.contact-list a:hover{ text-decoration: underline; }
+.contact-list a:visited{ color: var(--brand-2); }
+
+
 .site-footer{
   margin:40px 0 20px;
   color:var(--text-dimmed);
@@ -351,20 +383,139 @@ main{ min-height: calc(100dvh - var(--header-h) - var(--footer-h)); }
   .cards-grid{grid-template-columns: 1fr;}
 }
 
+/* ================= Переключение темы (кнопка) ================= */
+.theme-toggle{
+  margin-left: 4px;
+  width: 38px; height: 38px;
+  display:inline-flex; align-items:center; justify-content:center;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.02));
+  color: var(--text);
+  cursor: pointer;
+  transition: transform .08s ease, filter .15s ease, box-shadow .15s ease, background .2s ease, border-color .2s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+}
+.theme-toggle:hover{
+  filter: brightness(1.05);
+  border-color: rgba(255,255,255,.20);
+}
+.theme-toggle:active{ transform: translateY(1px); }
+
+/* В светлой теме делаем кнопку контрастнее */
+[data-theme="light"] .theme-toggle{
+  border-color: rgba(2,6,23,.12);
+  background: linear-gradient(180deg, rgba(2,6,23,.06), rgba(2,6,23,.02));
+  box-shadow: 0 6px 16px rgba(2,6,23,.1);
+}
+
+
+:root[data-theme="light"]{
+  --bg: #f3f6fc;
+  --surface: #ffffff;
+  --surface-2: #eef2f9;
+  --text: #0b1220;
+  --text-dimmed:#34425a;
+  --border:#c6d0e1;
+  --shadow: 0 10px 28px rgba(2,6,23,.09);
+  --brand:#4e76ff;
+  --brand-2:#3458ff;
+  --brand-3:#0bd89a;
+}
+:root[data-theme="dark"]{
+  --bg: #0a0c12;
+  --surface: #10131a;
+  --surface-2: #141a24;
+  --text: #e9eefb;
+  --text-dimmed:#a8b0c3;
+  --border: #243048;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --brand:#6aa0ff;
+  --brand-2:#9ab7ff;
+  --brand-3:#59fcb3;
+}
+[data-theme="dark"] .icon{ filter: invert(1) brightness(1.6) contrast(.9); opacity:.95; }
+[data-theme="light"] .icon{ filter: none; opacity:.9; }
+
 @media (prefers-color-scheme: light){
-  .icon{
-    filter: none;     
-    opacity: .85;
+  .site-header{
+    background: rgba(255,255,255,.88);
+    border-bottom: 1px solid var(--border);
   }
+  .site-nav a[aria-current="page"], .site-nav a:hover{
+    background: rgba(78,118,255,.12);
+    color: var(--brand-2);
+    border-color: var(--border);
+    box-shadow: 0 0 0 4px rgba(78,118,255,.12) inset;
+  }
+  .card{ border:1px solid var(--border); }
+  .project-card{ border:1px solid var(--border); background:
+    linear-gradient(180deg, rgba(2,6,23,.02), rgba(2,6,23,.00) 50%),
+    var(--surface-2); }
+  .progress{ background: linear-gradient(180deg, rgba(2,6,23,.04), rgba(2,6,23,.10)); border:1px solid var(--border); }
+  .modal__backdrop{ background: linear-gradient(180deg, rgba(2,6,23,.30), rgba(2,6,23,.45)); }
+  .modal__dialog{ border:1px solid var(--border); }
+  .modal__gallery img{ border:1px solid var(--border); background:#fff; }
+  .chip{ border-color: var(--border); background: linear-gradient(180deg, rgba(2,6,23,.02), rgba(2,6,23,.04)); }
+  .btn--ghost{
+    background: linear-gradient(180deg, rgba(78,118,255,.14), rgba(78,118,255,.04));
+    color: var(--brand-2);
+    border-color: rgba(78,118,255,.40);
+    box-shadow: 0 6px 14px rgba(78,118,255,.12);
+  }
+  .timeline li{
+    border-color: var(--border);
+    background: linear-gradient(180deg, rgba(2,6,23,.02), rgba(2,6,23,.00));
+  }
+  .site-footer{ border-top: 1px solid var(--border); }
 }
 
-.contact-list a{
-  color: var(--brand);
-  text-decoration: none;
+:root[data-theme="light"] .site-header{
+  background: rgba(255,255,255,.88);
+  border-bottom: 1px solid var(--border);
 }
+:root[data-theme="light"] .site-nav a[aria-current="page"],
+:root[data-theme="light"] .site-nav a:hover{
+  background: rgba(78,118,255,.12);
+  color: var(--brand-2);
+  border-color: var(--border);
+  box-shadow: 0 0 0 4px rgba(78,118,255,.12) inset;
+}
+:root[data-theme="light"] .card{ border:1px solid var(--border); }
+:root[data-theme="light"] .project-card{
+  border:1px solid var(--border);
+  background: linear-gradient(180deg, rgba(2,6,23,.02), rgba(2,6,23,.00) 50%), var(--surface-2);
+}
+:root[data-theme="light"] .progress{
+  background: linear-gradient(180deg, rgba(2,6,23,.04), rgba(2,6,23,.10));
+  border:1px solid var(--border);
+}
+:root[data-theme="light"] .modal__backdrop{
+  background: linear-gradient(180deg, rgba(2,6,23,.30), rgba(2,6,23,.45));
+}
+:root[data-theme="light"] .modal__dialog{ border:1px solid var(--border); }
+:root[data-theme="light"] .modal__gallery img{ border:1px solid var(--border); background:#fff; }
+:root[data-theme="light"] .chip{
+  border-color: var(--border);
+  background: linear-gradient(180deg, rgba(2,6,23,.02), rgba(2,6,23,.04));
+}
+:root[data-theme="light"] .btn--ghost{
+  background: linear-gradient(180deg, rgba(78,118,255,.14), rgba(78,118,255,.04));
+  color: var(--brand-2);
+  border-color: rgba(78,118,255,.40);
+  box-shadow: 0 6px 14px rgba(78,118,255,.12);
+}
+:root[data-theme="light"] .timeline li{
+  border-color: var(--border);
+  background: linear-gradient(180deg, rgba(2,6,23,.02), rgba(2,6,23,.00));
+}
+:root[data-theme="light"] .site-footer{ border-top: 1px solid var(--border); }
 
-.skills + .actions{
-  margin-top: clamp(16px, 3.2vw, 32px);
+:root[data-theme="light"] .timeline li.is-done{
+  --accent1: #16a34a;  
+  --accent2: #22c55e;
 }
-.contact-list a:hover{ text-decoration: underline; }
-.contact-list a:visited{ color: var(--brand-2); }
+:root[data-theme="light"] .timeline li.is-progress{
+  --accent1: #f59e0b; 
+  --accent2: #f97316;
+}

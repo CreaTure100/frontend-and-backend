@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="ру" data-page="diary">
+<html lang="ru" data-page="diary">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Личный сайт студента — Дневник</title>
   <meta name="description" content="Учебный дневник: прогресс по задачам и курсам." />
   <link rel="stylesheet" href="../styles/styles.css" />
+  <link rel="stylesheet" href="../styles/theme-toggle.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержимому</a>
@@ -22,6 +23,9 @@
         <a href="./diary.html" data-link="diary">Дневник</a>
         <a href="./contacts.html" data-link="contacts">Контакты</a>
       </nav>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему" title="Переключить тему" aria-pressed="false">
+        <span aria-hidden="true">🌙</span>
+      </button>
     </div>
   </header>
 
@@ -80,6 +84,26 @@
       </div>
     </section>
   </main>
+
+  <div class="modal" id="task-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="task-modal-title">
+    <div class="modal__backdrop" data-close-task></div>
+    <div class="modal__dialog" role="document">
+      <button class="modal__close" type="button" aria-label="Закрыть" data-close-task>×</button>
+      <h2 id="task-modal-title" class="h3">Новая задача</h2>
+
+      <form class="modal__form" id="task-form" novalidate>
+        <div class="field">
+          <label for="task-input">Введите текст новой задачи</label>
+          <input id="task-input" type="text" required placeholder="Например: Закончить работу с формами" />
+          <small class="error" aria-live="polite"></small>
+        </div>
+        <div class="modal__actions">
+          <button type="submit" class="btn">Добавить</button>
+          <button type="button" class="btn btn--ghost" id="task-cancel" data-close-task>Отмена</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container">

@@ -6,6 +6,7 @@
   <title>Личный сайт студента — Главная</title>
   <meta name="description" content="Визитка студента-разработчика: кратко обо мне, навыки, лучшие проекты." />
   <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/theme-toggle.css" />
   <style>
     .project-card--static { cursor: default; }
     .project-card--static:hover { transform: none; border-color: var(--border); }
@@ -26,6 +27,9 @@
         <a href="pages/diary.html" data-link="diary">Дневник</a>
         <a href="pages/contacts.html" data-link="contacts">Контакты</a>
       </nav>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему" title="Переключить тему" aria-pressed="false">
+        <span aria-hidden="true">🌙</span>
+      </button>
     </div>
   </header>
 
@@ -85,12 +89,12 @@
       <div class="cards-grid">
         <article class="project-card project-card--static">
           <h3 class="project-card__title">Личный сайт + Портфолио</h3>
-          <p class="text-dimmed">HTML, CSS, Bootstrap</p>
+          <p class="text-dимmed">HTML, CSS, Bootstrap</p>
         </article>
 
         <article class="project-card project-card--static">
           <h3 class="project-card__title">Интернет‑магазин</h3>
-          <p class="text-dimmed">JavaScript</p>
+          <p class="text-dимmed">JavaScript</p>
         </article>
 
         <article class="project-card project-card--static">
