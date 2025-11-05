@@ -10,7 +10,7 @@ const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   });
 })();
 
-// Фильтры проектов и модалка 
+// Фильтры проектов и модалка (с галереей скринов)
 (function initProjects(){
   const grid = $('#projects-grid');
   if(!grid) return;
@@ -32,12 +32,33 @@ const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   const desc = $('#project-modal-desc');
   const aDemo = $('#project-modal-demo');
   const aCode = $('#project-modal-code');
+  const gallery = $('#project-modal-gallery');
+
+  function setGallery(fromCard, projectTitle){
+    if(!gallery) return;
+    gallery.innerHTML = '';
+    const imgs = [fromCard.dataset.img1, fromCard.dataset.img2].filter(Boolean);
+    if(imgs.length){
+      imgs.forEach((src, i)=>{
+        const img = document.createElement('img');
+        img.src = src;
+        img.loading = 'lazy';
+        img.alt = `${projectTitle} — скриншот ${i+1}`;
+        gallery.appendChild(img);
+      });
+      gallery.hidden = false;
+    } else {
+      gallery.hidden = true;
+    }
+  }
 
   function openModal(fromCard){
-    title.textContent = fromCard.dataset.title || 'Проект';
+    const t = fromCard.dataset.title || 'Проект';
+    title.textContent = t;
     desc.textContent = fromCard.dataset.desc || 'Описание появится позже.';
     aDemo.href = fromCard.dataset.demo || '#';
     aCode.href = fromCard.dataset.code || '#';
+    setGallery(fromCard, t);
 
     modal.setAttribute('aria-hidden','false');
     document.body.style.overflow = 'hidden';
@@ -58,18 +79,46 @@ const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && modal?.getAttribute('aria-hidden')==='false'){ closeModal(); } });
 })();
 
-// Дневник: добавить запись 
+// Дневник: добавить запись (ввод собственного текста, статус — "В процессе")
 (function initDiary(){
   const list = $('#diary-list');
   const btn = $('#add-entry');
   if(!list || !btn) return;
 
   btn.addEventListener('click', ()=>{
+    // 1) запросить текст у пользователя
+    const raw = prompt('Введите текст новой задачи', '');
+    if(raw === null) return;                 // Отмена
+    const task = raw.trim();
+    if(!task) return;                        // Пустой текст — не добавляем
+
+    // 2) дата
     const now = new Date();
     const dd = now.toLocaleDateString('ru-RU', { day:'2-digit', month:'short' });
+
+    // 3) собрать DOM-узлы безопасно (без innerHTML для текста задачи)
     const li = document.createElement('li');
     li.className = 'is-progress';
-    li.innerHTML = `<time>${dd}</time> — Новая запись <span class="status status--progress" aria-label="в процессе" title="в процессе">В процессе</span>`;
+
+    const timeEl = document.createElement('time');
+    timeEl.textContent = dd;
+    li.appendChild(timeEl);
+
+    li.appendChild(document.createTextNode(' — '));
+
+    const taskSpan = document.createElement('span');
+    taskSpan.className = 'task-text';
+    taskSpan.textContent = task;             // безопасно вставляем текст
+    li.appendChild(taskSpan);
+
+    const statusSpan = document.createElement('span');
+    statusSpan.className = 'status status--progress';
+    statusSpan.setAttribute('aria-label','в процессе');
+    statusSpan.title = 'в процессе';
+    statusSpan.textContent = 'В процессе';
+    li.appendChild(statusSpan);
+
+    // 4) добавить в начало списка
     list.prepend(li);
   });
 })();
