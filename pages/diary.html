@@ -1,117 +1,95 @@
-<!doctype html>
-<html lang="ру" data-page="diary">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Личный сайт студента — Дневник</title>
-  <meta name="description" content="Учебный дневник: прогресс по задачам и курсам." />
-  <link rel="stylesheet" href="../styles/styles.css" />
-  <link rel="stylesheet" href="../styles/theme-toggle.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Портфолио - Дневник</title>
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
-<body class="page">
-  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+<body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+    <div class="page">
+        <header>
+            <nav aria-label="Основная навигация">
+                <div class="nav-container">
+                    <div class="logo">
+                        <h2>Шавров Артем</h2>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="../index.html">Главная</a></li>
+                        <li><a href="projects.html">Проекты</a></li>
+                        <li><a href="diary.html" class="active">Дневник</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
 
-  <header class="site-header header">
-    <div class="container header-inner">
-      <div class="logo" aria-label="Логотип">
-        <img src="../assets/images/icons/logo.svg" alt="" width="28" height="28" />
-        <span class="logo__text">Артем</span>
-      </div>
-      <nav class="site-nav nav" aria-label="Основная навигация">
-        <a href="../index.html" data-link="index">Главная</a>
-        <a href="./projects.html" data-link="projects">Проекты</a>
-        <a href="./diary.html" data-link="diary">Дневник</a>
-        <a href="./contacts.html" data-link="contacts">Контакты</a>
-      </nav>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему" title="Переключить тему" aria-pressed="false">
-        <span aria-hidden="true">🌙</span>
-      </button>
+        <main id="main">
+            <section class="diary">
+                <div class="container">
+                    <h1>Мой учебный прогресс</h1>
+
+                    <div class="diary-content">
+                        <div class="progress-list">
+                            <h2>Задачи</h2>
+                            <div class="task-item completed">
+                                <span class="task-date">15 дек</span>
+                                <span class="task-text">Верстка макета сайта</span>
+                                <span class="task-status">✓</span>
+                            </div>
+                            <div class="task-item completed">
+                                <span class="task-date">10 дек</span>
+                                <span class="task-text">JavaScript основы</span>
+                                <span class="task-status">✓</span>
+                            </div>
+                            <div class="task-item in-progress">
+                                <span class="task-date">05 дек</span>
+                                <span class="task-text">Работа с формами</span>
+                                <span class="task-status">in progress</span>
+                            </div>
+                            <div class="task-item in-progress">
+                                <span class="task-date">01 дек</span>
+                                <span class="task-text">Адаптивный дизайн</span>
+                                <span class="task-status">in progress</span>
+                            </div>
+                            <button class="btn add-task-btn">Добавить запись</button>
+                        </div>
+
+                        <div class="courses">
+                            <h2>Текущие курсы</h2>
+                            <div class="course-item">
+                                <span>Веб-разработка</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 90%"></div>
+                                </div>
+                                <span>90%</span>
+                            </div>
+                            <div class="course-item">
+                                <span>JavaScript</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 70%"></div>
+                                </div>
+                                <span>70%</span>
+                            </div>
+                            <div class="course-item">
+                                <span>React</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 50%"></div>
+                                </div>
+                                <span>50%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Контакты</p>
+            </div>
+        </footer>
     </div>
-  </header>
-
-  <main id="main" class="container stack-lg main">
-    <section class="card section" aria-labelledby="progress-title">
-      <h1 id="progress-title" class="h2 section-title">Мой учебный прогресс</h1>
-
-      <ul class="timeline" id="diary-list" aria-label="Список записей дневника" role="list">
-        <li class="is-done">
-          <time datetime="2025-12-15">15 дек</time> — Верстка макета сайта
-          <span class="status status--done" aria-label="выполнено" title="выполнено">Готово</span>
-        </li>
-        <li class="is-done">
-          <time datetime="2025-12-10">10 дек</time> — JavaScript основы
-          <span class="status status--done" aria-label="выполнено" title="выполнено">Готово</span>
-        </li>
-        <li class="is-progress">
-          <time datetime="2025-12-05">05 дек</time> — Работа с формами
-          <span class="status status--progress" aria-label="в процессе" title="в процессе">В процессе</span>
-        </li>
-        <li class="is-progress">
-          <time datetime="2025-12-01">01 дек</time> — Адаптивный дизайн
-          <span class="status status--progress" aria-label="в процессе" title="в процессе">В процессе</span>
-        </li>
-      </ul>
-
-      <div class="divider" role="separator" aria-hidden="true"></div>
-
-      <h2 class="h3 section-title">Текущие курсы</h2>
-      <ul class="skills" role="list">
-        <li>
-          <span>Веб‑разработка</span>
-          <div class="progress" role="progressbar" aria-label="Веб-разработка курс" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90">
-            <span style="--value:90%"></span>
-          </div>
-          <span class="progress__value">90%</span>
-        </li>
-        <li>
-          <span>JavaScript</span>
-          <div class="progress" role="progressbar" aria-label="JavaScript курс" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70">
-            <span style="--value:70%"></span>
-          </div>
-          <span class="progress__value">70%</span>
-        </li>
-        <li>
-          <span>React</span>
-          <div class="progress" role="progressbar" aria-label="React курс" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-            <span style="--value:50%"></span>
-          </div>
-            <span class="progress__value">50%</span>
-        </li>
-      </ul>
-
-      <div class="actions">
-        <button class="btn button" id="add-entry">Добавить запись</button>
-      </div>
-    </section>
-  </main>
-
-  <div class="modal" id="task-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="task-modal-title">
-    <div class="modal__backdrop" data-close-task></div>
-    <div class="modal__dialog" role="document">
-      <button class="modal__close" type="button" aria-label="Закрыть" data-close-task>×</button>
-      <h2 id="task-modal-title" class="h3">Новая задача</h2>
-
-      <form class="modal__form" id="task-form" novalidate>
-        <div class="field">
-          <label for="task-input">Введите текст новой задачи</label>
-          <input id="task-input" type="text" required placeholder="Например: Закончить работу с формами" />
-          <small class="error" aria-live="polite"></small>
-        </div>
-        <div class="modal__actions">
-          <button type="submit" class="btn button">Добавить</button>
-          <button type="button" class="btn btn--ghost button" id="task-cancel" data-close-task>Отмена</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <footer class="site-footer footer">
-    <div class="container">
-      <small>© 2025 Артем Шавров</small>
-    </div>
-  </footer>
-
-  <script src="../scripts/app.js" defer></script>
 </body>
 </html>

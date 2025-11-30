@@ -1,155 +1,133 @@
-<!doctype html>
-<html lang="ru" data-page="index">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Личный сайт студента — Главная</title>
-  <meta name="description"
-        content="Визитка студента-разработчика: кратко обо мне, навыки, лучшие проекты." />
-  <link rel="stylesheet" href="styles/styles.css" />
-  <link rel="stylesheet" href="styles/theme-toggle.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Портфолио - Главная</title>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body class="page">
-  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+<body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+    <div class="page">
+        <header>
+            <nav aria-label="Основная навигация">
+                <div class="nav-container">
+                    <div class="logo">
+                        <h2>Шавров Артем</h2>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="active">Главная</a></li>
+                        <li><a href="pages/projects.html">Проекты</a></li>
+                        <li><a href="pages/diary.html">Дневник</a></li>
+                        <li><a href="pages/contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
 
-  <header class="site-header header" role="banner">
-    <div class="container header-inner">
-      <div class="logo" aria-label="Логотип">
-        <img src="assets/images/icons/logo.svg" alt="" width="28" height="28" />
-        <span class="logo__text">Шавров Артем Александрович</span>
-      </div>
-      <nav class="site-nav nav" aria-label="Основная навигация">
-        <a href="./" data-link="index">Главная</a>
-        <a href="pages/projects.html" data-link="projects">Проекты</a>
-        <a href="pages/diary.html" data-link="diary">Дневник</a>
-        <a href="pages/contacts.html" data-link="contacts">Контакты</a>
-      </nav>
-      <button class="theme-toggle" id="theme-toggle"
-              aria-label="Переключить тему" title="Переключить тему"
-              aria-pressed="false">
-        <span aria-hidden="true">🌙</span>
-      </button>
+        <main id="main">
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Привет! Я студент группы ЭФБО-02-24</h1>
+                        <p class="description">Увлекаюсь веб‑разработкой: HTML, CSS, JavaScript. Ищу практику и интересные задачи.</p>
+                        <a href="assets/resume.pdf" download="resume.pdf" class="btn download-btn" target="_blank">Скачать резюме</a>
+                    </div>
+                    <div class="hero-image">
+                        <picture>
+                            <!-- Для мобильных -->
+                            <source media="(max-width: 768px)"
+                                    srcset="assets/images/profile/ava-mobile.webp 300w,
+                                            assets/images/profile/ava-mobile.avif 300w,
+                                            assets/images/profile/ava-mobile.png 300w"
+                                    sizes="(max-width: 768px) 90vw, 320px"
+                                    type="image/avif">
+
+                            <!-- Для десктопа -->
+                            <source type="image/webp"
+                                    srcset="assets/images/profile/ava-150.webp 150w,
+                                            assets/images/profile/ava-200.webp 200w,
+                                            assets/images/profile/ava-300.webp 300w"
+                                    sizes="(max-width: 768px) 90vw, 320px">
+
+                            <source type="image/avif"
+                                    srcset="assets/images/profile/ava-150.avif 150w,
+                                            assets/images/profile/ava-200.avif 200w,
+                                            assets/images/profile/ava-300.avif 300w"
+                                    sizes="(max-width: 768px) 90vw, 320px">
+
+                            <!-- Фолбэк -->
+                            <img class="profile-photo"
+                                 src="assets/images/profile/ava.png"
+                                 srcset="assets/images/profile/ava-150.png 150w,
+                                         assets/images/profile/ava-200.png 200w,
+                                         assets/images/profile/ava-300.png 300w"
+                                 sizes="(max-width: 768px) 90vw, 320px"
+                                 width="320"
+                                 height="320"
+                                 alt="Аватар"
+                                 fetchpriority="high">
+                        </picture>
+                    </div>
+                </div>
+            </section>
+
+            <section class="skills-section">
+                <div class="container">
+                    <h2>Мои навыки</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span>HTML/CSS</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>JavaScript</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%"></div>
+                            </div>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Bootstrap</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>React</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%"></div>
+                            </div>
+                            <span>60%</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="projects-preview">
+                <div class="projects-area">
+                    <div class="container">
+                        <h2>Лучшие проекты</h2>
+                        <div class="projects-grid">
+                            <div class="project-card">Личный сайт + Портфолио</div>
+                            <div class="project-card">Интернет‑магазин</div>
+                            <div class="project-card">Приложение‑библиотека</div>
+                        </div>
+                      </div>
+                 </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Контакты</p>
+            </div>
+        </footer>
     </div>
-  </header>
-
-  <main id="main" class="container stack-lg main" role="main">
-    <section class="hero card" aria-labelledby="hero-title">
-      <div class="hero__media hero__image">
-        <picture>
-          <source
-            media="(max-width: 768px)"
-            type="image/avif"
-            srcset="assets/images/profile/ava-mobile.avif 480w"
-            sizes="(max-width: 768px) 90vw, 320px">
-          <source
-            media="(max-width: 768px)"
-            type="image/webp"
-            srcset="assets/images/profile/ava-mobile.webp 480w"
-            sizes="(max-width: 768px) 90vw, 320px">
-          <source
-            media="(max-width: 768px)"
-            type="image/png"
-            srcset="assets/images/profile/ava-mobile.png 480w"
-            sizes="(max-width: 768px) 90vw, 320px">
-          <source
-            type="image/avif"
-            srcset="assets/images/profile/ava-150.avif 150w,
-                    assets/images/profile/ava-200.avif 200w,
-                    assets/images/profile/ava-300.avif 300w"
-            sizes="(max-width: 768px) 90vw, 200px">
-          <source
-            type="image/webp"
-            srcset="assets/images/profile/ava-150.webp 150w,
-                    assets/images/profile/ava-200.webp 200w,
-                    assets/images/profile/ava-300.webp 300w"
-            sizes="(max-width: 768px) 90vw, 200px">
-
-          <!-- Fallback PNG -->
-          <img class="hero__photo"
-              src="assets/images/profile/ava-200.png"
-              srcset="assets/images/profile/ava-150.png 150w,
-                      assets/images/profile/ava-200.png 200w,
-                      assets/images/profile/ava-300.png 300w"
-              sizes="(max-width: 768px) 90vw, 200px"
-              width="200" height="200"
-              alt="Портрет студента"
-              fetchpriority="high" loading="eager">
-        </picture>
-      </div>
-      <div class="hero__body">
-        <h1 id="hero-title" class="h2 hero__greeting">Привет! Я студент группы ЭФБО-02-24</h1>
-        <p class="prose">Увлекаюсь веб‑разработкой: HTML, CSS, JavaScript. Ищу практику и интересные задачи.</p>
-        <div class="hero__actions">
-          <a class="btn button" href="assets/resume.pdf" download>Скачать резюме</a>
-        </div>
-      </div>
-    </section>
-
-    <section aria-labelledby="skills-title" class="card section">
-      <h2 id="skills-title" class="h3 section-title">Мои навыки</h2>
-      <ul class="skills" role="list">
-        <li>
-          <span>HTML/CSS</span>
-          <div class="progress" role="progressbar" aria-label="HTML и CSS" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90">
-            <span style="--value:90%"></span>
-          </div>
-          <span class="progress__value">90%</span>
-        </li>
-        <li>
-          <span>JavaScript</span>
-          <div class="progress" role="progressbar" aria-label="JavaScript" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
-            <span style="--value:80%"></span>
-          </div>
-          <span class="progress__value">80%</span>
-        </li>
-        <li>
-          <span>Bootstrap</span>
-          <div class="progress" role="progressbar" aria-label="Bootstrap" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85">
-            <span style="--value:85%"></span>
-          </div>
-          <span class="progress__value">85%</span>
-        </li>
-        <li>
-          <span>React</span>
-          <div class="progress" role="progressbar" aria-label="React" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60">
-            <span style="--value:60%"></span>
-          </div>
-          <span class="progress__value">60%</span>
-        </li>
-      </ul>
-    </section>
-
-    <section aria-labelledby="best-title" class="card section projects-preview">
-      <div class="section-head">
-        <h2 id="best-title" class="h3 section-title">Лучшие проекты</h2>
-        <a class="link nav__link" href="pages/projects.html">Смотреть все</a>
-      </div>
-      <div class="projects-area">
-        <div class="cards-grid projects-list" id="projects-grid">
-          <article class="project-card project-card--static" tabindex="0">
-            <h3 class="project-card__title">Личный сайт + Портфолио</h3>
-            <p class="text-dimmed project-card__description">HTML, CSS, Bootstrap</p>
-          </article>
-          <article class="project-card project-card--static" tabindex="0">
-            <h3 class="project-card__title">Интернет‑магазин</h3>
-            <p class="text-dimmed project-card__description">JavaScript</p>
-          </article>
-            <article class="project-card project-card--static" tabindex="0">
-              <h3 class="project-card__title">Приложение‑библиотека</h3>
-              <p class="text-dimmed project-card__description">Python, SQL</p>
-            </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer footer" role="contentinfo">
-    <div class="container">
-      <small>© 2025 Артем Шавров</small>
-    </div>
-  </footer>
-
-  <script src="scripts/app.js" defer></script>
+    <script src="scripts/main.js"></script>
 </body>
 </html>

@@ -1,124 +1,91 @@
-<!doctype html>
-<html lang="ru" data-page="projects">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Личный сайт студента — Проекты</title>
-  <meta name="description" content="Коллекция учебных и личных проектов студента." />
-  <link rel="stylesheet" href="../styles/styles.css" />
-  <link rel="stylesheet" href="../styles/theme-toggle.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Портфолио - Проекты</title>
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
-<body class="page">
-  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+<body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+    <div class="page">
+        <header>
+            <nav aria-label="Основная навигация">
+                <div class="nav-container">
+                    <div class="logo">
+                        <h2>Шавров Артем</h2>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="../index.html">Главная</a></li>
+                        <li><a href="projects.html" class="active">Проекты</a></li>
+                        <li><a href="diary.html">Дневник</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
 
-  <header class="site-header header">
-    <div class="container header-inner">
-      <div class="logo" aria-label="Логотип">
-        <img src="../assets/images/icons/logo.svg" alt="" width="28" height="28" />
-        <span class="logo__text">Артем</span>
-      </div>
-      <nav class="site-nav nav" aria-label="Основная навигация">
-        <a href="../index.html" data-link="index">Главная</a>
-        <a href="./projects.html" data-link="projects">Проекты</a>
-        <a href="./diary.html" data-link="diary">Дневник</a>
-        <a href="./contacts.html" data-link="contacts">Контакты</a>
-      </nav>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему" title="Переключить тему" aria-pressed="false">
-        <span aria-hidden="true">🌙</span>
-      </button>
-    </div>
-  </header>
+        <main id="main">
+            <section class="projects-main">
+                <div class="container">
+                    <h1>Мои проекты</h1>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">Все</button>
+                        <button class="filter-btn" data-filter="html">HTML</button>
+                        <button class="filter-btn" data-filter="js">JS</button>
+                        <button class="filter-btn" data-filter="python">Python</button>
+                        <button class="filter-btn" data-filter="others">Другие</button>
+                    </div>
+                    <div class="projects-area">
+                        <div class="projects-grid-large">
+                            <!-- Проект 1 -->
+                            <div class="project-card-large" data-category="html" data-project="1">
+                                <h3>Личный сайт + Портфолио</h3>
+                                <p>HTML, CSS, Bootstrap</p>
+                            </div>
 
-  <main id="main" class="container stack-lg main">
-    <section aria-labelledby="projects-title" class="card section">
-      <div class="section-head">
-        <h1 id="projects-title" class="h2 section-title">Мои проекты</h1>
+                            <!-- Проект 2 -->
+                            <div class="project-card-large" data-category="python" data-project="2">
+                                <h3>Приложение-библиотека</h3>
+                                <p>Python, SQL</p>
+                            </div>
+                            <!-- Проект 3 -->
+                            <div class="project-card-large" data-category="js" data-project="3">
+                                <h3>Интернет‑магазин</h3>
+                                <p>JavaScript</p>
+                            </div>
 
-        <div class="filters" role="tablist" aria-label="Фильтры проектов">
-          <button class="chip is-active button" role="tab" aria-selected="true" data-filter="all">Все</button>
-          <button class="chip button" role="tab" aria-selected="false" data-filter="html">HTML</button>
-          <button class="chip button" role="tab" aria-selected="false" data-filter="js">JS</button>
-          <button class="chip button" role="tab" aria-selected="false" data-filter="python">Python</button>
-          <button class="chip button" role="tab" aria-selected="false" data-filter="cpp">C++</button>
+                            <!-- Проект 4 -->
+                            <div class="project-card-large" data-category="others" data-project="4">
+                                <h3>Шахматы</h3>
+                                <p>C++</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Модальное окно -->
+        <div id="projectModal" class="modal">
+            <div class="modal-content">
+                <button class="close-modal"
+                        aria-label="Закрыть диалоговое окно"
+                        type="button">
+                    &times;
+                </button>
+                <div class="modal-body">
+                    <!-- Контент будет заполняться динамически -->
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="projects-area">
-        <div class="cards-grid projects-list" id="projects-grid">
-          <!-- Личный сайт + Портфолио -->
-          <article class="project-card" tabindex="0" data-category="html"
-              data-title="Личный сайт + Портфолио"
-              data-desc="Одностраничный сайт с разделами и портфолио"
-              data-demo="https://creature100.github.io/frontend-and-backend-practice/index.html"
-              data-code="https://github.com/CreaTure100/frontend-and-backend-practice"
-              data-img1="../assets/images/projects/portfolio/portfolio-1.png"
-              data-img2="../assets/images/projects/portfolio/portfolio-2.png">
-            <h2 class="project-card__title">Личный сайт + Портфолио</h2>
-            <p class="text-dimmed project-card__description">HTML, CSS, Bootstrap</p>
-          </article>
-
-          <!-- Приложение-библиотека -->
-          <article class="project-card" tabindex="0" data-category="python"
-                   data-title="Система библиотеки (Python + SQL)"
-                   data-desc="Десктопное приложение для библиотеки на Python с базой данных (SQL)"
-                   data-demo="https://github.com/CreaTure100/BD_biblioteka_02"
-                   data-code="https://github.com/CreaTure100/BD_biblioteka_02"
-                   data-img1="../assets/images/projects/library/library-1.png"
-                   data-img2="../assets/images/projects/library/library-2.png">
-            <h2 class="project-card__title">Приложение-библиотека</h2>
-            <p class="text-dimmed project-card__description">Python, SQL</p>
-          </article>
-
-          <!-- Интернет‑магазин -->
-          <article class="project-card" tabindex="0" data-category="js"
-              data-title="Интернет‑магазин (страница товаров)"
-              data-desc="Демо каталога товаров"
-              data-demo="https://creature100.github.io/frontend-and-backend-practice/pages/goods.html"
-              data-code="https://github.com/CreaTure100/frontend-and-backend-practice"
-              data-img1="../assets/images/projects/goods/goods-1.png">
-            <h2 class="project-card__title">Интернет‑магазин</h2>
-            <p class="text-dimmed project-card__description">JavaScript</p>
-          </article>
-
-          <!-- Шахматы -->
-          <article class="project-card" tabindex="0" data-category="cpp"
-                   data-title="Шахматы (C++ курсовая)"
-                   data-desc="Приложение шахматы на C++ с ИИ в рамках курсовой работы"
-                   data-demo="https://github.com/CreaTure100/Chess"
-                   data-code="https://github.com/CreaTure100/Chess"
-                   data-img1="../assets/images/projects/chess/chess-1.png"
-                   data-img2="../assets/images/projects/chess/chess-2.png">
-            <h2 class="project-card__title">Шахматы</h2>
-            <p class="text-dimmed project-card__description">C++</p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <div class="modal" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
-    <div class="modal__backdrop" data-close-modal></div>
-    <div class="modal__dialog" role="document">
-      <button class="modal__close" type="button" aria-label="Закрыть" data-close-modal>×</button>
-      <h2 id="project-modal-title">Заголовок проекта</h2>
-      <p id="project-modal-desc" class="text-dimmed">Подробное описание появится здесь.</p>
-
-      <div class="modal__gallery" id="project-modal-gallery" hidden aria-label="Скриншоты проекта"></div>
-
-      <div class="modal__actions">
-        <a href="#" target="_blank" rel="noopener" class="btn btn--ghost button" id="project-modal-demo">Демо</a>
-        <a href="#" target="_blank" rel="noopener" class="btn button" id="project-modal-code">Исходники</a>
-      </div>
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Контакты</p>
+            </div>
+        </footer>
     </div>
-  </div>
-
-  <footer class="site-footer footer">
-    <div class="container">
-      <small>© 2025 Артем Шавров</small>
-    </div>
-  </footer>
-
-  <script src="../scripts/app.js" defer></script>
+    <script src="../scripts/projects.js"></script>
 </body>
 </html>
