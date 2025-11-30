@@ -1,23 +1,24 @@
 <!doctype html>
-<html lang="ru" data-page="diary">
+<html lang="ру" data-page="diary">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Личный сайт студента — Дневник</title>
   <meta name="description" content="Учебный дневник: прогресс по задачам и курсам." />
   <link rel="stylesheet" href="../styles/styles.css" />
   <link rel="stylesheet" href="../styles/theme-toggle.css" />
 </head>
-<body>
-  <a class="skip-link" href="#main">Перейти к содержимому</a>
+<body class="page">
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
-  <header class="site-header">
+  <header class="site-header header">
     <div class="container header-inner">
       <div class="logo" aria-label="Логотип">
         <img src="../assets/images/icons/logo.svg" alt="" width="28" height="28" />
         <span class="logo__text">Артем</span>
       </div>
-      <nav class="site-nav" aria-label="Главная навигация">
+      <nav class="site-nav nav" aria-label="Основная навигация">
         <a href="../index.html" data-link="index">Главная</a>
         <a href="./projects.html" data-link="projects">Проекты</a>
         <a href="./diary.html" data-link="diary">Дневник</a>
@@ -29,11 +30,11 @@
     </div>
   </header>
 
-  <main id="main" class="container stack-lg">
-    <section class="card" aria-labelledby="progress-title">
-      <h1 id="progress-title" class="h2">Мой учебный прогресс</h1>
+  <main id="main" class="container stack-lg main">
+    <section class="card section" aria-labelledby="progress-title">
+      <h1 id="progress-title" class="h2 section-title">Мой учебный прогресс</h1>
 
-      <ul class="timeline" id="diary-list" aria-label="Список записей дневника">
+      <ul class="timeline" id="diary-list" aria-label="Список записей дневника" role="list">
         <li class="is-done">
           <time datetime="2025-12-15">15 дек</time> — Верстка макета сайта
           <span class="status status--done" aria-label="выполнено" title="выполнено">Готово</span>
@@ -54,8 +55,8 @@
 
       <div class="divider" role="separator" aria-hidden="true"></div>
 
-      <h2 class="h3">Текущие курсы</h2>
-      <ul class="skills">
+      <h2 class="h3 section-title">Текущие курсы</h2>
+      <ul class="skills" role="list">
         <li>
           <span>Веб‑разработка</span>
           <div class="progress" role="progressbar" aria-label="Веб-разработка курс" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90">
@@ -75,12 +76,12 @@
           <div class="progress" role="progressbar" aria-label="React курс" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
             <span style="--value:50%"></span>
           </div>
-          <span class="progress__value">50%</span>
+            <span class="progress__value">50%</span>
         </li>
       </ul>
 
       <div class="actions">
-        <button class="btn" id="add-entry">Добавить запись</button>
+        <button class="btn button" id="add-entry">Добавить запись</button>
       </div>
     </section>
   </main>
@@ -98,16 +99,16 @@
           <small class="error" aria-live="polite"></small>
         </div>
         <div class="modal__actions">
-          <button type="submit" class="btn">Добавить</button>
-          <button type="button" class="btn btn--ghost" id="task-cancel" data-close-task>Отмена</button>
+          <button type="submit" class="btn button">Добавить</button>
+          <button type="button" class="btn btn--ghost button" id="task-cancel" data-close-task>Отмена</button>
         </div>
       </form>
     </div>
   </div>
 
-  <footer class="site-footer">
+  <footer class="site-footer footer">
     <div class="container">
-      <small>© 2025 Контакты</small>
+      <small>© 2025 Артем Шавров</small>
     </div>
   </footer>
 
